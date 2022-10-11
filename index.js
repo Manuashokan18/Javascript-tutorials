@@ -86,9 +86,7 @@ switch(friuts) {
     default:
         console.log("no fruits found");
         break;
-
 }
-
 
 //loops
 console.log("for-loop");
@@ -97,11 +95,8 @@ for(let j =1 ; j <= 10 ; j++) {
     console.log(j);
 }
 
-
-
 //while
 console.log("while-loop");
-
 let count1 = 20;
 while(count1 <= 30) {
     console.log(count1);
@@ -110,7 +105,6 @@ while(count1 <= 30) {
 
 //do
 console.log("do-while-loop");
-
 let count3 = 40 ;
 do {
     console.log(count3);
@@ -138,13 +132,147 @@ function onAlert() {
     alert("you have clicked the button");
     }
 // onAlert();
-
-let btn1 = document.getElementById('btn1');
-addEventListener("click",myFun2)
-
-function myFun2() {
-    alert("clicked");
+//add evenetlistner
+let btn1 = document.getElementById("btn1");
+addEventListener("click",myFunn)
+function myFunn(){
+    alert("you have clicked the function");
 }
 
+//spread operator (...variable name)
+//object spreading
+const globalPlayer = {
+    id:0,
+    name:"bot",
+    powerLevel:100,
+};
+ const player1 = {...globalPlayer};
 
-//spread operator
+ player1.powerLevel = 500;
+ console.log(player1);
+ console.log(globalPlayer);
+ //we can manipulate the value of an obejct and an array 
+ //but we can't manipulate the value of a string and integers,
+ //because it is imutabale
+
+//array spreading
+ const globalPlayer1 = ["Manu","Ashokan","Amala"];
+ const globalPlayer2 = ["Libin","George","Gokul"];
+ console.log(globalPlayer1);
+ console.log(globalPlayer2);
+ //normal concatination
+ const player2 = globalPlayer1.concat(globalPlayer2);
+ console.log(player2);
+ //using spread operater
+ const player3 = [...globalPlayer1,...globalPlayer2];
+ console.log(player3);
+//array pushing
+ const player4 = [...globalPlayer1,"Ashokan"];
+ console.log(player4);
+
+ //rest operater 
+ console.log(globalPlayer1[0]);
+ console.log(globalPlayer1[1]);
+ console.log(globalPlayer1[2]);
+
+ //array destructuring
+ const [son,father,daughter] = globalPlayer1;
+ console.log(son);
+ console.log(daughter);
+ console.log(father);
+
+ //object destucturing
+ const globalPlayer4 = {
+    id:0,
+    name:"bot",
+    powerLevel:100,
+};
+console.log(globalPlayer4);
+//const {name,id,powerLevel} = globalPlayer4;
+// console.log(id);
+// console.log(name);
+// console.log(powerLevel);
+
+//rest operater
+const { id,...rest} = globalPlayer4;
+console.log(id);
+console.log(rest);
+
+//arrow functions detailing
+const newFun = () => console.log("Arrow function Running");
+newFun();
+const newAddition = (value) => value + 10 ;
+console.log(newAddition(10));
+
+//for each
+const globalPlayer6 = [{
+    id:1,
+    name:"bot1",
+    powerLevel:100,
+},
+{
+    id:2,
+    name:"bot2",
+    powerLevel:200,
+},
+{
+    id:3,
+    name:"bot3",
+    powerLevel:300,
+}
+];
+// for(let i=0;i<= globalPlayer6.length;i++ ){
+//     console.log(globalPlayer6[i].name);
+// }
+globalPlayer6.forEach((value,index,array) => {
+    console.log(value.id);   
+    console.log(value.name);   
+    console.log(value.powerLevel);   
+    console.log(index);
+    console.log(array);   
+
+
+})
+
+//map methods
+const globalPlayer7 = [{
+    id:1,
+    name:"bot1",
+    powerLevel:100,
+},
+{
+    id:2,
+    name:"bot2",
+    powerLevel:200,
+},
+{
+    id:3,
+    name:"bot3",
+    powerLevel:300,
+}
+];
+//const newArray1 = globalPlayer7.map((value) => value.id);
+// console.log(newArray1);
+
+//filter methods
+const newArray1  = globalPlayer7.filter((value) => value.id === 3 && value.powerLevel ===300);
+console.log(newArray1);
+
+//reduce
+const numberArray =[10,20,30,5,40,50];
+let total = 0;
+const newArray2 = numberArray.reduce((total,value) => total + value,0);
+console.log(newArray2);
+
+//find
+const newObj = globalPlayer7.find((value) => value.id === 3);
+console.log(newObj);
+
+//sort
+const sortedNumber = numberArray.sort((a,b) => a-b);
+console.log(numberArray);
+
+//QUERY SELECTORS
+//var query = document.getElementById("header").innerHTML = "QUERY SELECTER";
+document.querySelector("#header").style.color = "red";
+document.querySelector(".header").innerHTML = "QUERY SELECTER";
