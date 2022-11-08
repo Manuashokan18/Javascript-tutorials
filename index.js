@@ -276,3 +276,26 @@ console.log(numberArray);
 //var query = document.getElementById("header").innerHTML = "QUERY SELECTER";
 document.querySelector("#header").style.color = "red";
 document.querySelector(".header").innerHTML = "QUERY SELECTER";
+
+
+//set time out . it is basically asynchronus 
+// console.log("Running 1");
+// setTimeout(() => {
+// console.log("Running 2");
+    
+// }, 4000);
+
+// console.log("Running 3");
+
+//callback function
+let first = (callback) => {
+    console.log("Manu");
+    callback();
+}
+let second = () => console.log("Ashokan");
+first(second);
+
+//set interval
+// let interval = setInterval(second,1000);
+// clearInterval(interval)
+// setTimeout(second,2000);
